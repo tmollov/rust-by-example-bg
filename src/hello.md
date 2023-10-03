@@ -1,45 +1,44 @@
-# Hello World
+# Hello World - първата ви програма в Rust
 
-This is the source code of the traditional Hello World program.
+Това е изходният код на традиционната програма "Hello World".
 
 ```rust,editable
-// This is a comment, and is ignored by the compiler.
-// You can test this code by clicking the "Run" button over there ->
-// or if you prefer to use your keyboard, you can use the "Ctrl + Enter"
-// shortcut.
+// Това е коментар и се игнорира от компилатора.
+// Можете да тествате този код, като щракнете върху бутона "Run" (бутона с триъгълника)
+// или ако предпочитате да използвате клавиатурата, 
+// можете да използвате комбинацията "Ctrl + Enter".
 
-// This code is editable, feel free to hack it!
-// You can always return to the original code by clicking the "Reset" button ->
+// Този код може да бъде редактиран, не се притеснявайте да го променяте!
+// Винаги можете да се върнете към оригиналния код, като кликнете върху бутона "Reset" (левия бутон)
 
-// This is the main function.
+// Това е главната функция.
 fn main() {
-    // Statements here are executed when the compiled binary is called.
+    // Кодът тук се изпълнява, когато компилираният бинарен файл се извика.
 
-    // Print text to the console.
+    // Извеждане на текст в конзолата.
     println!("Hello World!");
 }
 ```
 
-`println!` is a [*macro*][macros] that prints text to the
-console.
+`println!` e [*макро*][macros] който отпечатва текст към конзола.
 
-A binary can be generated using the Rust compiler: `rustc`.
+Може да се генерира изпълним файл (binary) с помощта на компилатора на Rust.: `rustc`.
 
 ```bash
-$ rustc hello.rs
+rustc hello.rs
 ```
 
-`rustc` will produce a `hello` binary that can be executed.
+`rustc` ще създаде изпълним файл с име `hello`, който може да се изпълни.
 
 ```bash
 $ ./hello
 Hello World!
 ```
 
-### Activity
+## Дейност
 
-Click 'Run' above to see the expected output. Next, add a new
-line with a second `println!` macro so that the output shows:
+Щракнете върху **Run** (бутона с триъгълника) отгоре, за да видите очаквания изход.
+След това добавете нов ред с втори `println!` макро, така че изходът да изглежда така:
 
 ```text
 Hello World!
