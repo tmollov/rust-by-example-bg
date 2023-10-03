@@ -1,64 +1,58 @@
-# Rust by Example
+# Rust by Example - Езика Rust чрез примери
 
-[Rust][rust] is a modern systems programming language focusing on safety, speed,
-and concurrency. It accomplishes these goals by being memory safe without using 
-garbage collection.
+[Rust][rust] е съвременен програмен език за системно програмиране, с акцент върху **безопасността**, **скоростта** и **паралелизма**. Той постига тези цели, като е сигурен по отношение на управлението на паметта, без да използва т.нар. **garbage collection**.
 
-Rust by Example (RBE) is a collection of runnable examples that illustrate various Rust
-concepts and standard libraries. To get even more out of these examples, don't forget
-to [install Rust locally][install] and check out the [official docs][std]. 
-Additionally for the curious, you can also [check out the source code for this site][home].
+Rust by Example (RBE) е колекция от изпълними примери, които илюстрират различни концепции в Rust и стандартни библиотеки. За да извлечете още повече информация от тези примери, не забравяйте да [инсталирате Rust локално][install] и да разгледате [стандартната библиотека на Rust][std]. За тези, които са любопитни, може също да [разгледате изходния код на този сайт][home].
 
-Now let's begin!
+Сега, нека да започнем!
 
-- [Hello World](hello.md) - Start with a traditional Hello World program.
+- [Hello World](hello.md) - Започнете с традиционна програма "Hello World".
 
-- [Primitives](primitives.md) - Learn about signed integers, unsigned integers and other primitives.
+- [Основни типове](primitives.md) - Научете за знакови и беззнакови цели числа, и други основни типове.
 
-- [Custom Types](custom_types.md) - `struct` and `enum`.
+- [Персонализирани типове](custom_types.md) - `struct` и `enum`.
 
-- [Variable Bindings](variable_bindings.md) - mutable bindings, scope, shadowing.
+- [Привързвания на променливи](variable_bindings.md) - Мутабилни привързвания, обхват, засенчване.
 
-- [Types](types.md) - Learn about changing and defining types.
+- [Типове](types.md) - Научете за промяна и дефиниране на типове.
 
-- [Conversion](conversion.md)
+- [Преобразуване](conversion.md)
 
-- [Expressions](expression.md)
+- [Изрази](expression.md)
 
-- [Flow of Control](flow_control.md) - `if`/`else`, `for`, and others.
+- [Контрол на потока](flow_control.md) - `if`/`else`, `for`, и други.
 
-- [Functions](fn.md) - Learn about Methods, Closures and Higher Order Functions.
+- [Функции](fn.md) - Научете за Методи, Closures и Функции от Висок ред (Higher Order Functions).
 
-- [Modules](mod.md) - Organize code using modules
+- [Модули](mod.md) - Организиране на кода чрез използване на модули.
 
-- [Crates](crates.md) - A crate is a compilation unit in Rust. Learn to create a library.
+- [Crates](crates.md) - В Rust, crate е компилационна единица. Научете как да създадете библиотека.
 
-- [Cargo](cargo.md) - Go through some basic features of the official Rust package management tool.
+- [Cargo](cargo.md) - Преминете през някои основни функции на официалния инструмент за управление на пакети в Rust.
 
-- [Attributes](attribute.md) - An attribute is metadata applied to some module, crate or item.
+- [Атрибути](attribute.md) - Атрибут (attribute) е метаданни, приложени към някакъв модул, библиотека (crate) или елемент.
 
-- [Generics](generics.md) - Learn about writing a function or data type which can work for multiple types of arguments.
+- [Generics](generics.md) - Научете как да пишете функции или типове данни, които могат да работят с различни типове аргументи.
 
-- [Scoping rules](scope.md) - Scopes play an important part in ownership, borrowing, and lifetimes.
+- [Правила за обхват](scope.md) - Обхватите играят важна роля в собствеността, заемането и продължителността на живота на променливите.
 
-- [Traits](trait.md) - A trait is a collection of methods defined for an unknown type: `Self`
+- [Traits](trait.md) - Тrait е набор от методи, дефинирани за неизвестен тип: `Self`
 
 - [Macros](macros.md)
 
-- [Error handling](error.md) - Learn Rust way of handling failures.
+- [Обработка на грешки](error.md) - Учете Rust-кия начина за справяне с грешките.
 
-- [Std library types](std.md) - Learn about some custom types provided by `std` library.
+- [Std типове](std.md) - Научете за някои персонализирани типове, предоставени от библиотеката `std`.
 
-- [Std misc](std_misc.md) - More custom types for file handling, threads.
+- [Std misc](std_misc.md) - Повече персонализирани типове за обработка на файлове и нишки (multithreading програмиране).
 
-- [Testing](testing.md) - All sorts of testing in Rust.
+- [Тестване](testing.md) - Всички видове тестове в Rust.
 
-- [Unsafe Operations](unsafe.md)
+- [Несигурни операции](unsafe.md)
 
-- [Compatibility](compatibility.md)
+- [Съвместимост](compatibility.md)
 
-- [Meta](meta.md) - Documentation, Benchmarking.
-
+- [Meta](meta.md) - Документация и измерване на производителността.
 
 [rust]: https://www.rust-lang.org/
 [install]: https://www.rust-lang.org/tools/install
