@@ -1,69 +1,57 @@
-# Rust by Example contribution guidelines
+# Rust by Example - Насоки за принос
 
-Thank you for your interest in making Rust by Example (also known as RBE)
-better! We'd love to have your contribution. We expect all contributors to
-abide by the [Rust code of conduct], which you can find at that link or in the
-[`CODE_OF_CONDUCT.md`] file in this repository.
+Благодарим Ви за интереса ви към усъвършенстването на **Rust by Example** (също известен като **RBE**)!
+Ще се радваме да получим вашата контибуция. Очакваме всички контрибутори
+да спазват [Кодекса на поведение на Rust], който можете да намерите на този линк или във файла
+[`CODE_OF_CONDUCT.md`].
 
-[Rust code of conduct]: https://www.rust-lang.org/policies/code-of-conduct
+[Кодекса на поведение на Rust]: https://www.rust-lang.org/policies/code-of-conduct
 [`CODE_OF_CONDUCT.md`]: https://github.com/rust-lang/rust-by-example/blob/master/CODE_OF_CONDUCT.md
 
-## License
+## Лиценс
 
-RBE is dual licenced under the MIT and Apache 2.0 licenses, and so are all
-contributions. Please see the [`LICENSE-MIT`] and [`LICENSE-APACHE`] files in
-this directory for more details.
+**RBE** е лицензиран под **два** лиценза - MIT и Apache 2.0, и същото важи и за всички контибуции. Моля, вижте файловете [`LICENSE-MIT`] и [`LICENSE-APACHE`] в тази директория за повече информация.
 
 [`LICENSE-MIT`]: https://github.com/rust-lang/rust-by-example/blob/master/LICENSE-MIT
 [`LICENSE-APACHE`]: https://github.com/rust-lang/rust-by-example/blob/master/LICENSE-APACHE
 
-## Pull Requests
+## Pull Requests - заявки контрибуции
 
-To make changes to RBE, please send in pull requests on GitHub to the `master`
-branch. We'll review them and either merge or request changes. Travis CI tests
-everything as well, so you may get feedback from it too.
+За да направите промени по **RBE**, моля изпратете **Pull Request** от GitHub към бранча `master`.
+Ще ги прегледаме и ще решим дали да ги обединим или да поискаме промени. Също така, **Travis CI** извършва тестове на всичко, така че може да получите обратна връзка и от него.
 
-If you make additions or other changes to a pull request, feel free to either amend
-previous commits or only add new ones, however you prefer. We may ask you to squash
-your commits before merging, depending.
+Ако правите добавки или други промени към pull request-а, можете да редактирате предишните комити или да добавите само нови, както предпочитате. Възможно е да ви поискаме да обедините (squash) комитите си преди да ги обединим, в зависимост от случая.
 
-## Issue Tracker
+## Issue Tracker - системата за проследяване на проблеми
 
-You can find the issue tracker [on
-GitHub](https://github.com/rust-lang/rust-by-example/issues). If you've found a
-problem with RBE, please open an issue there.
+Можете да намерите системата за проследяване на проблеми [в
+GitHub](https://github.com/rust-lang/rust-by-example/issues).  
+Ако сте открили проблем с **RBE**, моля, отворете проблем (issue) там.
 
-We use the following labels:
+Използваме следните етикети:
 
-* `enhancement`: This is for any request for new sections or functionality.
-* `bug`: This is for anything that's in RBE, but incorrect or not working.
-* `discussion`: A discussion about improving something in RBE; this may lead to new
-  enhancement or bug issues.
-* `E-mentor`: This issue has someone dedicated to helping a new contributor fix it!
-  Can apply to both enhancement or bug issues.
+* `enhancement`: Този етикет се използва за всички искания за нови раздели или функционалности.
+* `bug`: Този етикет се използва за всичко, което е в **RBE**, но е неправилно или не функционира правилно.
+* `discussion`: Този етикет се използва за дискусии относно подобрения на нещо в RBE; това може да доведе до нови искания за подобрения или бъгове.
+* `E-mentor`: Този етикет се използва за проблеми, при които има човек, посветен на помощ за нов контибутор в решаването им! Може да се отнася както за искания за подобрения, така и за бъгове.
 
-## Development workflow
+## Разработъчен процес
 
-To build RBE, [install Rust](https://www.rust-lang.org/tools/install), and then:
+За да компилирате **RBE**, [инсталирайте Rust](https://www.rust-lang.org/tools/install), и след това в конзолата да изпълните следните команди:
 
 ```bash
-$ git clone https://github.com/rust-lang/rust-by-example
-$ cd rust-by-example
-$ cargo install mdbook
-$ mdbook build
+git clone https://github.com/rust-lang/rust-by-example
+cd rust-by-example
+cargo install mdbook
+mdbook build
 ```
 
-[install Rust]: http://rust-lang.org/install.html
+Файловете ще бъдат в директорията `book` на най-високото ниво; командата `mdbook serve` ще отвори съдържанието във вашия уеб браузър (по подразбиране на [localhost:3000](http://localhost:3000)).
 
-The files will be in the `book` directory at the top-level; `mdbook serve` will
-open the contents in your web browser ([localhost:3000](http://localhost:3000) by default).
-
-To run the tests:
+За да изпълните тестовете:
 
 ```bash
-$ mdbook test
+mdbook test
 ```
 
-If you're adding a new chapter, you'll need to edit `src\SUMMARY.md` to add it. If
-you're tweaking an existing example, you'll need to edit the corresponding file; check
-`src\SUMMARY.md` to see a mapping of where chapters go to files.
+Ако добавяте нов раздел, ще трябва да редактирате `src\SUMMARY.md`, за да го добавите. Ако коригирате съществуващ пример, ще трябва да редактирате съответния файл; проверете `src\SUMMARY.md`, за да видите разпределението между разделите и файловете.
