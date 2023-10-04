@@ -1,13 +1,13 @@
-# Summary
+# Съдържание
 
-[Introduction](index.md)
+[Въведение](index.md)
 
 - [Hello World](hello.md)
-    - [Comments](hello/comment.md)
-    - [Formatted print](hello/print.md)
+    - [Коментари](hello/comment.md)
+    - [Форматирано принтиране](hello/print.md)
         - [Debug](hello/print/print_debug.md)
         - [Display](hello/print/print_display.md)
-            - [Testcase: List](hello/print/print_display/testcase_list.md)
+          - [Testcase: List](hello/print/print_display/testcase_list.md)
         - [Formatting](hello/print/fmt.md)
 
 - [Primitives](primitives.md)

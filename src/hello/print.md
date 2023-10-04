@@ -1,109 +1,104 @@
-# Formatted print
+# Форматиране на изход
 
-Printing is handled by a series of [`macros`][macros] defined in
-[`std::fmt`][fmt] some of which include:
+Извеждането се осъществява чрез серия от [`макроси`][macros] дефинирани в модула
+[`std::fmt`][fmt], като някои от тях включват:
 
-* `format!`: write formatted text to [`String`][string]
-* `print!`: same as `format!` but the text is printed to the console
-  (io::stdout).
-* `println!`: same as `print!` but a newline is appended.
-* `eprint!`: same as `print!` but the text is printed to the standard error
-  (io::stderr).
-* `eprintln!`: same as `eprint!` but a newline is appended.
+* `format!`: записва форматиран текст в [String][string].
+* `print!`: същото като `format!`, но текстът се извежда на конзолата (io::stdout).
+* `println!`: същото като `print!`, но се добавя нов ред.
+* `eprint!`: същото като `print!`, но текстът се извежда в стандартния изход за грешки (io::stderr).
+* `eprintln!`: същото като eprint!, но се добавя нов ред.
 
-All parse text in the same fashion. As a plus, Rust checks formatting
-correctness at compile time.
+Всички те парсират текста по същия начин.
+Освен това, Rust проверява коректността на форматирането по време на компилацията.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // In general, the `{}` will be automatically replaced with any
-    // arguments. These will be stringified.
+    // В общия случай, {} ще бъде автоматично заменено със съответните
+    // аргументи. Те ще бъдат конвертирани в низове (stringified).
     println!("{} days", 31);
 
-    // Positional arguments can be used. Specifying an integer inside `{}`
-    // determines which additional argument will be replaced. Arguments start
-    // at 0 immediately after the format string.
+    // Могат да се използват позиционни аргументи. 
+    // Указването на цяло число вътре в {} определя кой допълнителен аргумент ще бъде заместен.
+    // Аргументите започват от 0 незабавно след форматния низ.
+    // в случая 0 = "Alice" и 1 = "Bob"
     println!("{0}, this is {1}. {1}, this is {0}", "Alice", "Bob");
 
-    // As can named arguments.
+    // Също така могат да се използват наименовани аргументи.
     println!("{subject} {verb} {object}",
              object="the lazy dog",
              subject="the quick brown fox",
              verb="jumps over");
 
-    // Different formatting can be invoked by specifying the format character
-    // after a `:`.
+    // Различно форматиране може да бъде извикано чрез указване на знак за формат след :
     println!("Base 10:               {}",   69420); // 69420
     println!("Base 2 (binary):       {:b}", 69420); // 10000111100101100
     println!("Base 8 (octal):        {:o}", 69420); // 207454
     println!("Base 16 (hexadecimal): {:x}", 69420); // 10f2c
     println!("Base 16 (hexadecimal): {:X}", 69420); // 10F2C
 
-    // You can right-justify text with a specified width. This will
-    // output "    1". (Four white spaces and a "1", for a total width of 5.)
+    // Можете да изравнявате текст отдясно с определена ширина.  
+    // Това ще изведе "    1". (Четири бели интервала и "1", за обща ширина от 5.)
     println!("{number:>5}", number=1);
 
-    // You can pad numbers with extra zeroes,
+    // Можете да допълвате числата с допълнителни нули.
     println!("{number:0>5}", number=1); // 00001
-    // and left-adjust by flipping the sign. This will output "10000".
+    // също така и със букви
+    println!("{number:A>5}", number=1); // AAAA1
+    // и да настройвате изравняването отляво, като обръщате знака. Това ще изведе "10000".
     println!("{number:0<5}", number=1); // 10000
 
-    // You can use named arguments in the format specifier by appending a `$`.
+    // Можете да използвате именовани аргументи във форматния спецификатор, като добавите `$`.
     println!("{number:0>width$}", number=1, width=5);
 
-    // Rust even checks to make sure the correct number of arguments are used.
+    // Rust дори проверява, за да се увери, че са използвани правилният брой аргументи.
     println!("My name is {0}, {1} {0}", "Bond");
-    // FIXME ^ Add the missing argument: "James"
+    // ЗАДАЧА ^ Добавете липсващия аргумент: "James"
 
-    // Only types that implement fmt::Display can be formatted with `{}`. User-
-    // defined types do not implement fmt::Display by default.
+    // Само типове, които имплементират fmt::Display, могат да бъдат форматирани с {}. 
+    // Потребителски дефинирани типове по подразбиране не имплементират fmt::Display.
 
-    #[allow(dead_code)] // disable `dead_code` which warn against unused module
+    #[allow(dead_code)] // деактивиране на `dead_code`, който предупреждава за неползван код в модула
     struct Structure(i32);
 
-    // This will not compile because `Structure` does not implement
-    // fmt::Display.
+    // Това няма да компилира, защото Structure не имплементира fmt::Display.
     // println!("This struct `{}` won't print...", Structure(3));
-    // TODO ^ Try uncommenting this line
+    // TODO ^ Опитайте да премахнете коментара на този ред.
 
-    // For Rust 1.58 and above, you can directly capture the argument from a
-    // surrounding variable. Just like the above, this will output
-    // "    1", 4 white spaces and a "1".
+    // За Rust 1.58 и по-нови версии, можете директно 
+    // да засечете аргумента от глобалните/локалните променливи. 
+    // Точно както по-горе, това ще изведе
+    // "    1", 4 бели интервала и "1".
     let number: f64 = 1.0;
     let width: usize = 5;
     println!("{number:>width$}");
 }
 ```
 
-[`std::fmt`][fmt] contains many [`traits`][traits] which govern the display
-of text. The base form of two important ones are listed below:
+[`std::fmt`][fmt] съдържа много видове [`trait-ове`][traits], които управляват извеждането на текст.
+Основната форма на два важни от тях са изброени по-долу:
 
-* `fmt::Debug`: Uses the `{:?}` marker. Format text for debugging purposes.
-* `fmt::Display`: Uses the `{}` marker. Format text in a more elegant, user
-  friendly fashion.
+* `fmt::Debug`: Използва маркера `{:?}`. Форматира текста за цели при дебъгване и отстраняване на грешки.
+* `fmt::Display`: Използва маркера {}. Форматира текста по-елегантно и потребителски удобно.
 
-Here, we used `fmt::Display` because the std library provides implementations
-for these types. To print text for custom types, more steps are required.
+Тук ние използвахме `fmt::Display`, защото стандартната библиотека предоставя имплементации за тези типове.
+За да извеждате текст за потребителски типове, се изискват допълнителни стъпки.
 
-Implementing the `fmt::Display` trait automatically implements the
-[`ToString`] trait which allows us to [convert] the type to [`String`][string].
+Имплементирането на trait-а `fmt::Display` автоматично имплементира
+[`ToString`] trait-а, което ни позволява да [конвертираме] дадения тип към [`String`][string].
 
-In *line 43*, `#[allow(dead_code)]` is an [attribute] which only apply to the module after it.
+На *ред 43*, `#[allow(dead_code)]` е [атрибут], който се отнася само до модула след него.
 
-### Activities
+### Дейности
 
-* Fix the issue in the above code (see FIXME) so that it runs without
-  error.
-* Try uncommenting the line that attempts to format the `Structure` struct
-  (see TODO)
-* Add a `println!` macro call that prints: `Pi is roughly 3.142` by controlling
-  the number of decimal places shown. For the purposes of this exercise, use
-  `let pi = 3.141592` as an estimate for pi. (Hint: you may need to check the
-  [`std::fmt`][fmt] documentation for setting the number of decimals to display)
+* Коригирайте проблема в горния код (погледнете ЗАДАЧА-та в 55 ред) така че да работи без грешка.
+* Опитайте да премахнете коментара на реда, който се опитва да форматира структурата `Structure` (вижте TODO).
+* Добавете `println!`, което трябва да принтира: `Pi is roughly 3.142` като контролирате броя на показаните десетични знаци. За целите на това упражнение, използвайте
+`let pi = 3.141592` като приблизителна стойност на числото π. (Съвет:може да бъде необходимо да проверите [документацията на `std::fmt`][fmt] за настройване на броя десетични знаци за извеждане.)
 
-### See also:
+### See also
 
-[`std::fmt`][fmt], [`macros`][macros], [`struct`][structs], [`traits`][traits], and [`dead_code`][dead_code]
+[`std::fmt`][fmt], [`macros`][macros], [`struct`][structs], [`traits`][traits], и [`dead_code`][dead_code]
 
 [fmt]: https://doc.rust-lang.org/std/fmt/
 [macros]: ../macros.md
@@ -111,6 +106,6 @@ In *line 43*, `#[allow(dead_code)]` is an [attribute] which only apply to the mo
 [structs]: ../custom_types/structs.md
 [traits]: https://doc.rust-lang.org/std/fmt/#formatting-traits
 [`ToString`]: https://doc.rust-lang.org/std/string/trait.ToString.html
-[convert]: ../conversion/string.md
-[attribute]: ../attribute.md
+[конвертираме]: ../conversion/string.md
+[атрибут]: ../attribute.md
 [dead_code]: ../attribute/unused.md
