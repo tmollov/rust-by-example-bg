@@ -2,13 +2,13 @@
 
 [Въведение](index.md)
 
-- [Hello World](hello.md)
+- [Hello World в Rust](hello.md)
     - [Коментари](hello/comment.md)
     - [Форматирано принтиране](hello/print.md)
-        - [Debug](hello/print/print_debug.md)
-        - [Display](hello/print/print_display.md)
-          - [Testcase: List](hello/print/print_display/testcase_list.md)
-        - [Formatting](hello/print/fmt.md)
+        - [Debug trait](hello/print/print_debug.md)
+        - [Display trait](hello/print/print_display.md)
+          - [Тестов случай: Списък](hello/print/print_display/testcase_list.md)
+        - [Форматиране](hello/print/fmt.md)
 
 - [Primitives](primitives.md)
     - [Literals and operators](primitives/literals.md)

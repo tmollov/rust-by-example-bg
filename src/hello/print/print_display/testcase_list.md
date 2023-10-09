@@ -1,45 +1,42 @@
-# Testcase: List
+# Тестов случай: Списък
 
-Implementing `fmt::Display` for a structure where the elements must each be
-handled sequentially is tricky. The problem is that each `write!` generates a
-`fmt::Result`. Proper handling of this requires dealing with *all* the
-results. Rust provides the `?` operator for exactly this purpose.
+Имплементирането на `fmt::Display` за структура, в която елементите трябва да бъдат обработвани последователно, е трудно. Проблемът е, че всяко `write!` генерира `fmt::Result`.
+За правилното справяне с това е необходимо да се справите с *всички резултати*.
+Rust  предоставя оператора `?` точно за тази цел.
 
-Using `?` on `write!` looks like this:
+Използването на `?` върху `write!` изглежда по следния начин:
 
 ```rust,ignore
-// Try `write!` to see if it errors. If it errors, return
-// the error. Otherwise continue.
+// Опитайте `write!`, за да видите дали генерира грешка. Ако генерира грешка, 
+// върнете грешката. В противен случай продължете.
 write!(f, "{}", value)?;
 ```
 
-With `?` available, implementing `fmt::Display` for a `Vec` is
-straightforward:
+С наличието на оператора `?`, имплементирането на `fmt::Display` за `Vec` е сравнително лесно:
 
 ```rust,editable
-use std::fmt; // Import the `fmt` module.
+use std::fmt; // Импортиране на модула `fmt`.
 
-// Define a structure named `List` containing a `Vec`.
+// Дефинирайте структура с име `List`, която съдържа `Vec`.
 struct List(Vec<i32>);
 
 impl fmt::Display for List {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        // Extract the value using tuple indexing,
-        // and create a reference to `vec`.
+        // Извлечете стойността чрез `tuple indexing`,
+        // и създайте референция към `vec`.
         let vec = &self.0;
 
         write!(f, "[")?;
 
-        // Iterate over `v` in `vec` while enumerating the iteration
-        // count in `count`.
+        // Итерирайте през `v` в `vec`, като преброявате итерациите в `count`.
         for (count, v) in vec.iter().enumerate() {
-            // For every element except the first, add a comma.
-            // Use the ? operator to return on errors.
+            // За всеки елемент, освен първия, добавете запетая.
+            // Използвайте оператора `?` при връщане на грешка.
             if count != 0 { write!(f, ", ")?; }
             write!(f, "{}", v)?;
         }
 
-        // Close the opened bracket and return a fmt::Result value.
+        // Затворете отворената скоба и върнете стойност от тип `fmt::Result`.
         write!(f, "]")
     }
 }
@@ -50,19 +47,19 @@ fn main() {
 }
 ```
 
-### Activity
+### Дейности
 
-Try changing the program so that the index of each element in the vector is also
-printed. The new output should look like this:
+Опитайте да промените програмата така, че да се изпринтира и индексът на всеки елемент във вектора.
+Новият изход трябва да изглежда по следния начин:
 
 ```rust,ignore
 [0: 1, 1: 2, 2: 3]
 ```
 
-### See also:
+### Вижте също
 
 [`for`][for], [`ref`][ref], [`Result`][result], [`struct`][struct],
-[`?`][q_mark], and [`vec!`][vec]
+[`?`][q_mark], и [`vec!`][vec]
 
 [for]: ../../../flow_control/for.md
 [result]: ../../../std/result.md
