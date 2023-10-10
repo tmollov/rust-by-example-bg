@@ -1,60 +1,59 @@
-# Primitives
+# Примитивни типове
 
-Rust provides access to a wide variety of `primitives`. A sample includes:
+Rust предоставя достъп до разнообразни `примитивни типове`. Един пример включва:
 
-### Scalar Types
+### Скаларни типове
 
-* Signed integers: `i8`, `i16`, `i32`, `i64`, `i128` and `isize` (pointer size)
-* Unsigned integers: `u8`, `u16`, `u32`, `u64`, `u128` and `usize` (pointer
-  size)
-* Floating point: `f32`, `f64`
-* `char` Unicode scalar values like `'a'`, `'α'` and `'∞'` (4 bytes each)
-* `bool` either `true` or `false`
-* The unit type `()`, whose only possible value is an empty tuple: `()`
+* Цели числа със знак: `i8`, `i16`, `i32`, `i64`, `i128` и `isize` (pointer size)
+* Цели числа без знак: `u8`, `u16`, `u32`, `u64`, `u128` и `usize` (pointer size)
+* Числа с плаваща запетая: `f32`, `f64`
+* `char` Unicode скаларни стойности като `'a'`, `'α'` и `'∞'` (4 байта всеки)
+* `bool`, което е или `true`, или `false`
+* Типът "unit" `()`, чиято единствена възможна стойност е празен `tuple`: `()`
 
-Despite the value of a unit type being a tuple, it is not considered a compound
-type because it does not contain multiple values.
+Въпреки че стойността на типа "unit" е `tuple`, той не се счита за съставен тип, защото не съдържа множество стойности.
 
-### Compound Types
+### Съставни типове
 
-* Arrays like `[1, 2, 3]`
-* Tuples like `(1, true)`
+* Масиви - `[1, 2, 3]`
+* Tuples -  `(1, true)`
 
-Variables can always be *type annotated*. Numbers may additionally be annotated
-via a *suffix* or *by default*. Integers default to `i32` and floats to `f64`.
-Note that Rust can also infer types from context.
+Променливите винаги могат да бъдат *анотирани с тип*.
+Числата могат да бъдат анотирани със *суфикс*.
+Целите числа имат `i32` анотация по подразбиране, а тези с плаваща запетая `f64`.
+Имайте предвид, че Rust може също да извежда типове от контекста.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // Variables can be type annotated.
+    // Променливите могат да бъдат анотирани по тип.
     let logical: bool = true;
 
-    let a_float: f64 = 1.0;  // Regular annotation
-    let an_integer   = 5i32; // Suffix annotation
+    let a_float: f64 = 1.0;  // Обикновенна анотация
+    let an_integer   = 5i32; // Суфиксна анотация
 
-    // Or a default will be used.
+    // Или ще се използва тези по подразбиране.
     let default_float   = 3.0; // `f64`
     let default_integer = 7;   // `i32`
 
-    // A type can also be inferred from context.
-    let mut inferred_type = 12; // Type i64 is inferred from another line.
+    // Типът може да бъде изведен и от контекста.
+    let mut inferred_type = 12; // Типа i64 се извежда от друг ред.
     inferred_type = 4294967296i64;
 
-    // A mutable variable's value can be changed.
-    let mut mutable = 12; // Mutable `i32`
+    // Стойността на мутираща променлива може да бъде променена.
+    let mut mutable = 12; // Мутираща `i32`
     mutable = 21;
 
-    // Error! The type of a variable can't be changed.
+    // Грешка! Типът на променливата не може да бъде променена.
     mutable = true;
 
-    // Variables can be overwritten with shadowing.
+    // Променливите могат да бъдат презаписани със `shadowing` т.е. редефиниране.
     let mutable = true;
 }
 ```
 
-### See also:
+### Вижте също
 
-[the `std` library][std], [`mut`][mut], [`inference`][inference], and
+[the `std` library][std], [`mut`][mut], [`inference`][inference], и
 [`shadowing`][shadowing]
 
 [std]: https://doc.rust-lang.org/std/

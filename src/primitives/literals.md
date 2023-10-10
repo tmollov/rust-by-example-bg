@@ -1,49 +1,47 @@
-# Literals and operators
+# Литерали и оператори
 
-Integers `1`, floats `1.2`, characters `'a'`, strings `"abc"`, booleans `true`
-and the unit type `()` can be expressed using literals.
+Цели числа `1`, числа с плаваща запетая `1.2`, символи `'a'`, низове `"abc"`, булеви стойности `true` и типът "unit" `()` могат да бъдат изразени с помощта на литерали.
 
-Integers can, alternatively, be expressed using hexadecimal, octal or binary
-notation using these prefixes respectively: `0x`, `0o` or `0b`.
+Целите числа могат също така да бъдат изразени чрез шестнадесетична, осмична или двоична нотация, използвайки съответните префикси: `0x` за шестнадесетична, `0o` за осмична и `0b` за двоична.
 
-Underscores can be inserted in numeric literals to improve readability, e.g.
-`1_000` is the same as `1000`, and `0.000_001` is the same as `0.000001`.
+Може да се вмъкнат долни черти в числови литерали за подобряване на четимостта, т.е
+`1_000` е същото като `1000`, и `0.000_001` е същото като `0.000001`.
 
-Rust also supports scientific [E-notation][enote], e.g. `1e6`, `7.6e-4`. The
-associated type is `f64`.
+Rust също поддържа научна [Е-нотация][enote], t.e. `1e6`, `7.6e-4`.
+Свързаният тип е `f64`.
 
-We need to tell the compiler the type of the literals we use. For now,
-we'll use the `u32` suffix to indicate that the literal is an unsigned 32-bit
-integer, and the `i32` suffix to indicate that it's a signed 32-bit integer.
+Трябва да кажем на компилатора типа на литералите, които използваме. За сега,
+ще използваме суфикса `u32`, за да покажем, че литерала е 32 битово число **без** знак,
+а суфикса `i32`, че е 32 битово число **със** знак,.
 
-The operators available and their precedence [in Rust][rust op-prec] are similar
-to other [C-like languages][op-prec].
+Наличните оператори и техният приоритет [в Rust][rust op-prec] са подобни
+на други [C-подобни езици][op-prec].
 
 ```rust,editable
 fn main() {
-    // Integer addition
+    // Събиране на цяло число
     println!("1 + 2 = {}", 1u32 + 2);
 
-    // Integer subtraction
+    // Изваждане на цяло число
     println!("1 - 2 = {}", 1i32 - 2);
-    // TODO ^ Try changing `1i32` to `1u32` to see why the type is important
+    // TODO ^ Опитайте да промените `1i32` на `1u32`, за да видите защо типът е важен
 
-    // Scientific notation
+    // Научна нотация
     println!("1e4 is {}, -2.5e-3 is {}", 1e4, -2.5e-3);
 
-    // Short-circuiting boolean logic
+    // Булева логика
     println!("true AND false is {}", true && false);
     println!("true OR false is {}", true || false);
     println!("NOT true is {}", !true);
 
-    // Bitwise operations
+    // Побитови операции
     println!("0011 AND 0101 is {:04b}", 0b0011u32 & 0b0101);
     println!("0011 OR 0101 is {:04b}", 0b0011u32 | 0b0101);
     println!("0011 XOR 0101 is {:04b}", 0b0011u32 ^ 0b0101);
     println!("1 << 5 is {}", 1u32 << 5);
     println!("0x80 >> 2 is 0x{:x}", 0x80u32 >> 2);
 
-    // Use underscores to improve readability!
+    // Използвайте долни черти, за да подобрите четимостта!
     println!("One million is written as {}", 1_000_000u32);
 }
 ```

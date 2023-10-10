@@ -1,71 +1,71 @@
-# Arrays and Slices
+# Масиви и отрязъци
 
-An array is a collection of objects of the same type `T`, stored in contiguous
-memory. Arrays are created using brackets `[]`, and their length, which is known
-at compile time, is part of their type signature `[T; length]`.
+Масивът е колекция от обекти от същия тип `T`, съхранени в съседна памет.
+Масивите се създават с помощта на скобите `[]`, и тяхната дължина, която е известна по време на компилация, е част от техния типов подпис `[T; дължина]`.
 
-Slices are similar to arrays, but their length is not known at compile time.
-Instead, a slice is a two-word object; the first word is a pointer to the data,
-the second word the length of the slice. The word size is the same as usize,
-determined by the processor architecture, e.g. 64 bits on an x86-64. Slices can
-be used to borrow a section of an array and have the type signature `&[T]`.
+Отрязъците са подобни на масивите, но тяхната дължина не се знае по време на компилация.
+Вместо това отрязъкът е обект от две думи; първата дума е указател към данните,
+втората дума е дължината на отрязъка. Размерът на думата е същият като `usize`,
+определен от архитектурата на процесора, например 64 бита на x86-64. Отрязъците
+могат да бъдат използвани, за да заемат част от масив и имат типов подпис `&[T]`.
 
 ```rust,editable,ignore,mdbook-runnable
 use std::mem;
 
-// This function borrows a slice.
+// Тази функция достъпва отрязък.
 fn analyze_slice(slice: &[i32]) {
     println!("First element of the slice: {}", slice[0]);
     println!("The slice has {} elements", slice.len());
 }
 
 fn main() {
-    // Fixed-size array (type signature is superfluous).
+    // Масив с фиксиран размер (типовият подпис е излишен).
     let xs: [i32; 5] = [1, 2, 3, 4, 5];
+    let xs = [1, 2, 3, 4, 5];
 
-    // All elements can be initialized to the same value.
+    // Всички елементи могат да бъдат инициализирани със една и съща стойност.
     let ys: [i32; 500] = [0; 500];
 
-    // Indexing starts at 0.
+    // Индексирането стартира от 0.
     println!("First element of the array: {}", xs[0]);
     println!("Second element of the array: {}", xs[1]);
 
-    // `len` returns the count of elements in the array.
+    // функцията `len` връща броя на елементите в масива.
     println!("Number of elements in array: {}", xs.len());
 
-    // Arrays are stack allocated.
+    // Масивите се разпределят в стека.
     println!("Array occupies {} bytes", mem::size_of_val(&xs));
 
-    // Arrays can be automatically borrowed as slices.
+    // Масивите автоматично могат да бъдат достъпвани като отрязъците.
     println!("Borrow the whole array as a slice.");
     analyze_slice(&xs);
 
-    // Slices can point to a section of an array.
-    // They are of the form [starting_index..ending_index].
-    // `starting_index` is the first position in the slice.
-    // `ending_index` is one more than the last position in the slice.
+    // Отрязък може да сочи към парче от масив.
+    // Те са във форма на [стартиращ_индекс..завършващ_индекс].
+    // `стартиращ_индекс` е първата позиция на отрязъка.
+    // `завършващ_индекс` е последната позицив+1 на отрязъка.
     println!("Borrow a section of the array as a slice.");
     analyze_slice(&ys[1 .. 4]);
 
-    // Example of empty slice `&[]`:
+    // Пример за празен отрязък `&[]`:
     let empty_array: [u32; 0] = [];
     assert_eq!(&empty_array, &[]);
-    assert_eq!(&empty_array, &[][..]); // Same but more verbose
+    assert_eq!(&empty_array, &[][..]); // Същото, но по-подробно
 
-    // Arrays can be safely accessed using `.get`, which returns an
-    // `Option`. This can be matched as shown below, or used with
-    // `.expect()` if you would like the program to exit with a nice
-    // message instead of happily continue.
-    for i in 0..xs.len() + 1 { // Oops, one element too far!
+    // Масивите могат да бъдат достъпни безопасно чрез `.get`, което връща тип `Option`. 
+    // Това може да бъде съпоставено както е показано по-долу, или да се използва с `.expect()`,
+    // ако желаете програмата да излезе с приятно съобщение, вместо да
+    // продължава да се изпълнява.
+    for i in 0..xs.len() + 1 { // Опа, с един елемент прекалено напред!
         match xs.get(i) {
             Some(xval) => println!("{}: {}", i, xval),
             None => println!("Slow down! {} is too far!", i),
         }
     }
 
-    // Out of bound indexing on array causes compile time error.
+    // Индексирането извън границите на масива предизвиква грешка по време на компилация.
     //println!("{}", xs[5]);
-    // Out of bound indexing on slice causes runtime error.
+    // Индексирането извън границите на масива при отрязък предизвиква грешка по време на изпълнение.
     //println!("{}", xs[..][5]);
 }
 ```

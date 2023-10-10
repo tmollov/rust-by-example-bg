@@ -7,13 +7,13 @@
     - [Форматирано принтиране](hello/print.md)
         - [Debug trait](hello/print/print_debug.md)
         - [Display trait](hello/print/print_display.md)
-          - [Тестов случай: Списък](hello/print/print_display/testcase_list.md)
+            - [Тестов случай: Списък](hello/print/print_display/testcase_list.md)
         - [Форматиране](hello/print/fmt.md)
 
-- [Primitives](primitives.md)
-    - [Literals and operators](primitives/literals.md)
+- [Примитивни типове](primitives.md)
+    - [Литерали и оператори](primitives/literals.md)
     - [Tuples](primitives/tuples.md)
-    - [Arrays and Slices](primitives/array.md)
+    - [Масиви и отрязъци](primitives/array.md)
 
 - [Custom Types](custom_types.md)
     - [Structures](custom_types/structs.md)
