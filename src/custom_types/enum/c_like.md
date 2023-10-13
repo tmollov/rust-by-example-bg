@@ -1,19 +1,19 @@
-# C-like
+# C-подобни
 
-`enum` can also be used as C-like enums.
+`enum` може също да е подобно на енумите в C езика: C-подобно.
 
 ```rust,editable
-// An attribute to hide warnings for unused code.
+// Атрибут, който скрива предупрежденията за неползван код.
 #![allow(dead_code)]
 
-// enum with implicit discriminator (starts at 0)
+// Енумерация с неясен дискриминатор (стартира от 0)
 enum Number {
     Zero,
     One,
     Two,
 }
 
-// enum with explicit discriminator
+// Енумерация с ясен дискриминатор
 enum Color {
     Red = 0xff0000,
     Green = 0x00ff00,
@@ -21,7 +21,7 @@ enum Color {
 }
 
 fn main() {
-    // `enums` can be cast as integers.
+    // `enums` могат да бъдат cast-нати (превръщани) като цели числа.
     println!("zero is {}", Number::Zero as i32);
     println!("one is {}", Number::One as i32);
 
@@ -30,7 +30,7 @@ fn main() {
 }
 ```
 
-### See also:
+### Вижте също
 
 [casting][cast]
 

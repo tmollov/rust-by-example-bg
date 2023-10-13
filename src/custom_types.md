@@ -1,8 +1,8 @@
-# Custom Types
+# Персонализирани типове данни
 
-Rust custom data types are formed mainly through the two keywords:
+Персонализираните типове данни на **Rust** се формират главно чрез двете ключови думи:
 
-* `struct`: define a structure
-* `enum`: define an enumeration
+* `struct`: дефинира структура
+* `enum`: дефинира енумерация
 
-Constants can also be created via the `const` and `static` keywords.
+Константите също могат да бъдат създадени чрез ключовите думи  `const` и `static`.
