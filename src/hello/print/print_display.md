@@ -112,7 +112,7 @@ Debug: Complex { real: 3.3, imag: 7.2 }
 
 ### Вижте също
 
-[`derive`][derive], [`std::fmt`][fmt], [`macros`][macros], [`struct`][structs],
+[`derive`][derive], [`std::fmt`][fmt], [`macros`][macros], [`структури`][structs],
 [`trait`][traits], и [`use`][use]
 
 [derive]: ../../trait/derive.md

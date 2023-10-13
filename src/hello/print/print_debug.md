@@ -71,8 +71,8 @@ fn main() {
 
 ### Вижте също
 
-[`attributes`][attributes], [`derive`][derive], [`std::fmt`][fmt],
-и [`struct`][structs]
+[`атрибути`][attributes], [`derive`][derive], [`std::fmt`][fmt],
+и [`структури`][structs]
 
 [attributes]: https://doc.rust-lang.org/reference/attributes.html
 [derive]: ../../trait/derive.md
