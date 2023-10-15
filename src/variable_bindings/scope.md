@@ -1,29 +1,32 @@
-# Scope and Shadowing
+# Обхват и презаписване
 
-Variable bindings have a scope, and are constrained to live in a *block*. A
-block is a collection of statements enclosed by braces `{}`. 
+Променливите имат област на валидност и са ограничени да съществуват в рамките на *блок* (block).
+Блокът представлява колекция от конструкции, затворени в скоби `{}`.
+
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // This binding lives in the main function
+    // Тази променлива живее в основната функция
     let long_lived_binding = 1;
 
-    // This is a block, and has a smaller scope than the main function
+    // Това е блок и има по-малък обхват от основната функция
     {
-        // This binding only exists in this block
+        // Тази променлива съществува само в този блок
         let short_lived_binding = 2;
 
         println!("inner short: {}", short_lived_binding);
     }
-    // End of the block
+    // Край на блока
 
-    // Error! `short_lived_binding` doesn't exist in this scope
+    // Грешка! `short_lived_binding` не съществува в този обхват
     println!("outer short: {}", short_lived_binding);
-    // FIXME ^ Comment out this line
+    // FIXME ^ Коментирайте този ред
 
     println!("outer long: {}", long_lived_binding);
 }
 ```
-Also, [variable shadowing][variable-shadow] is allowed.
+
+Също така, [презаписването на променливи][variable-shadow] е позволено.
+
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
     let shadowed_binding = 1;
@@ -31,16 +34,17 @@ fn main() {
     {
         println!("before being shadowed: {}", shadowed_binding);
 
-        // This binding *shadows* the outer one
+        // Тази променлива *презаписва* външното
         let shadowed_binding = "abc";
 
         println!("shadowed in inner block: {}", shadowed_binding);
     }
     println!("outside inner block: {}", shadowed_binding);
 
-    // This binding *shadows* the previous binding
+    // Тази променлива *презаписва* предишната променлива
     let shadowed_binding = 2;
     println!("shadowed in outer block: {}", shadowed_binding);
 }
 ```
+
 [variable-shadow]: https://en.wikipedia.org/wiki/Variable_shadowing

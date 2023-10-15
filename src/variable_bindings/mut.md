@@ -1,7 +1,6 @@
-# Mutability
+# Изменчивост - мутабилност
 
-Variable bindings are immutable by default, but this can be overridden using
-the `mut` modifier.
+Променливите по подразбиране са неизменяеми (immutable - не могат да мутират), но това може да бъде заменено с `mut` модификатора.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
@@ -10,14 +9,14 @@ fn main() {
 
     println!("Before mutation: {}", mutable_binding);
 
-    // Ok
+    // ОК
     mutable_binding += 1;
 
     println!("After mutation: {}", mutable_binding);
 
-    // Error! Cannot assign a new value to an immutable variable
+    // Грешка! Не може да се присвои нова стойност на неизменяема променлива.
     _immutable_binding += 1;
 }
 ```
 
-The compiler will throw a detailed diagnostic about mutability errors.
+Компилаторът ще генерира подробно съобщение за грешка относно проблеми с мутабилността.

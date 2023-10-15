@@ -23,11 +23,11 @@
         - [Тестов случай: свързан списък](custom_types/enum/testcase_linked_list.md)
     - [Константи](custom_types/constants.md)
 
-- [Variable Bindings](variable_bindings.md)
-    - [Mutability](variable_bindings/mut.md)
-    - [Scope and Shadowing](variable_bindings/scope.md)
-    - [Declare first](variable_bindings/declare.md)
-    - [Freezing](variable_bindings/freeze.md)
+- [Променливи](variable_bindings.md)
+    - [Мутабилност](variable_bindings/mut.md)
+    - [Обхват и презаписване](variable_bindings/scope.md)
+    - [Деклариране](variable_bindings/declare.md)
+    - [Замразяване](variable_bindings/freeze.md)
 
 - [Types](types.md)
     - [Casting](types/cast.md)

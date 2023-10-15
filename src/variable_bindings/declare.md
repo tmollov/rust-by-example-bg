@@ -1,18 +1,17 @@
-# Declare first
+# Деклариране
 
-It's possible to declare variable bindings first, and initialize them later.
-However, this form is seldom used, as it may lead to the use of uninitialized
-variables.
+Възможно е да декларирате променливи, а след това да ги инициализирате по-късно.
+Въпреки това, този вид се използва рядко, тъй като може да доведе до използването на неинициализирани променливи.
 
 ```rust,editable,ignore,mdbook-runnable
 fn main() {
-    // Declare a variable binding
+    // Деклариране на променлива
     let a_binding;
 
     {
         let x = 2;
 
-        // Initialize the binding
+        // Инициализиране на променлива
         a_binding = x * x;
     }
 
@@ -20,9 +19,9 @@ fn main() {
 
     let another_binding;
 
-    // Error! Use of uninitialized binding
+    // Грешка! Използване на неинициализирана променлива
     println!("another binding: {}", another_binding);
-    // FIXME ^ Comment out this line
+    // FIXME ^ Коментирайте този ред
 
     another_binding = 1;
 
@@ -30,5 +29,5 @@ fn main() {
 }
 ```
 
-The compiler forbids use of uninitialized variables, as this would lead to
-undefined behavior.
+Компилаторът забранява използването на неинициализирани променливи, тъй като това би довело до
+неопределено поведение.

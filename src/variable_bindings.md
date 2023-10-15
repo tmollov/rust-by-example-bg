@@ -1,11 +1,11 @@
-# Variable Bindings
+# Променливи
 
-Rust provides type safety via static typing. Variable bindings can be type
-annotated when declared. However, in most cases, the compiler will be able
-to infer the type of the variable from the context, heavily reducing the
-annotation burden.
+Rust осигурява безопасност на типовете чрез статично типизиране.
+Променливите могат да бъдат анотирани с тип при декларацията им.
+Въпреки това, в повечето случаи компилаторът може да извлече
+типа на променливата от контекста, което намалява необходимостта от анотации.
 
-Values (like literals) can be bound to variables, using the `let` binding.
+Стойности (като литерали) могат да бъдат свързани с променливи, използвайки ключовата дума `let`.
 
 ```rust,editable
 fn main() {
@@ -13,19 +13,19 @@ fn main() {
     let a_boolean = true;
     let unit = ();
 
-    // copy `an_integer` into `copied_integer`
+    // копираме `an_integer` в `copied_integer`
     let copied_integer = an_integer;
 
     println!("An integer: {:?}", copied_integer);
     println!("A boolean: {:?}", a_boolean);
     println!("Meet the unit value: {:?}", unit);
 
-    // The compiler warns about unused variable bindings; these warnings can
-    // be silenced by prefixing the variable name with an underscore
+    // Компилаторът предупреждава за неизползвани променливи; тези предупреждения
+    // могат да бъдат заглушени, като сложим префикс(prefix) пред името на променливата с долно черта.
     let _unused_variable = 3u32;
 
     let noisy_unused_variable = 2u32;
-    // FIXME ^ Prefix with an underscore to suppress the warning
-    // Please note that warnings may not be shown in a browser
+    // FIXME ^ Добавете подчертавка пред имената на променливите, за да потиснете предупрежденията.
+    // Моля, обърнете внимание, че предупрежденията може да не се показват в браузъра.
 }
 ```
