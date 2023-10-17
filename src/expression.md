@@ -1,34 +1,33 @@
-# Expressions
+# Изрази
 
-A Rust program is (mostly) made up of a series of statements:
+Една програма на **Rust** се състои (предимно) от поредица от инструкции:
 
 ```rust,editable
 fn main() {
-    // statement
-    // statement
-    // statement
+    // инструкция 1
+    // инструкция 2
+    // инструкция 3
 }
 ```
 
-There are a few kinds of statements in Rust. The most common two are declaring
-a variable binding, and using a `;` with an expression:
+В Rust има няколко вида инструкции. Най-често срещаните две са
+деклариране на променливи и използване на израза `;`:
 
 ```rust,editable
 fn main() {
-    // variable binding
+    // деклариране на променливи
     let x = 5;
 
-    // expression;
+    // израз;
     x;
     x + 1;
     15;
 }
 ```
 
-Blocks are expressions too, so they can be used as values in
-assignments. The last expression in the block will be assigned to the
-place expression such as a local variable. However, if the last expression of the block ends with a
-semicolon, the return value will be `()`.
+Блоковете също са изрази и могат да бъдат използвани като стойности в присвоявания.
+Последният израз в блока ще бъде присвоен на мястото на израза, като например локална променлива.
+Въпреки това, ако последният израз в блока завършва с точка и запетая, стойността, която се връща, ще бъде `()`.
 
 ```rust,editable
 fn main() {
@@ -38,12 +37,12 @@ fn main() {
         let x_squared = x * x;
         let x_cube = x_squared * x;
 
-        // This expression will be assigned to `y`
+        // Този израз ще бъде присвоен на `y`
         x_cube + x_squared + x
     };
 
     let z = {
-        // The semicolon suppresses this expression and `()` is assigned to `z`
+        // Точката и запетая потискат този израз и `()` се присвоява на `z`
         2 * x;
     };
 

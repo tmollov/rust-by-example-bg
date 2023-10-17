@@ -35,12 +35,12 @@
     - [Извеждане на типове](types/inference.md)
     - [Псевдонимни типове](types/alias.md)
 
-- [Conversion](conversion.md)
-    - [`From` and `Into`](conversion/from_into.md)
-    - [`TryFrom` and `TryInto`](conversion/try_from_try_into.md)
-    - [To and from `String`s](conversion/string.md)
+- [Конвертиране](conversion.md)
+    - [`From` и `Into`](conversion/from_into.md)
+    - [`TryFrom` и `TryInto`](conversion/try_from_try_into.md)
+    - [В или от тип `String`](conversion/string.md)
 
-- [Expressions](expression.md)
+- [Изрази](expression.md)
 
 - [Flow of Control](flow_control.md)
     - [if/else](flow_control/if_else.md)
