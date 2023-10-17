@@ -29,11 +29,11 @@
     - [Деклариране](variable_bindings/declare.md)
     - [Замразяване](variable_bindings/freeze.md)
 
-- [Types](types.md)
-    - [Casting](types/cast.md)
-    - [Literals](types/literals.md)
-    - [Inference](types/inference.md)
-    - [Aliasing](types/alias.md)
+- [Типове](types.md)
+    - [Кастинг на типове](types/cast.md)
+    - [Литерали](types/literals.md)
+    - [Извеждане на типове](types/inference.md)
+    - [Псевдонимни типове](types/alias.md)
 
 - [Conversion](conversion.md)
     - [`From` and `Into`](conversion/from_into.md)

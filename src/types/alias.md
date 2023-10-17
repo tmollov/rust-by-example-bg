@@ -1,11 +1,11 @@
-# Aliasing
+# Псевдонимни типове
 
-The `type` statement can be used to give a new name to an existing type. Types
-must have `UpperCamelCase` names, or the compiler will raise a warning. The
-exception to this rule are the primitive types: `usize`, `f32`, etc.
+Конструкцията `type` може да се използва за задаване на ново име на съществуващ тип.
+Типовете трябва да имат имена от тип `UpperCamelCase`, в противен случай компилаторът ще генерира предупреждение.
+Изключение от това правило са примитивните типове като `usize`, `f32`, и други.
 
 ```rust,editable
-// `NanoSecond`, `Inch`, and `U64` are new names for `u64`.
+// `NanoSecond`, `Inch`, и `U64` са новите имена на `u64`.
 type NanoSecond = u64;
 type Inch = u64;
 type U64 = u64;
@@ -15,8 +15,8 @@ fn main() {
     let nanoseconds: NanoSecond = 5 as U64;
     let inches: Inch = 2 as U64;
 
-    // Note that type aliases *don't* provide any extra type safety, because
-    // aliases are *not* new types
+    // Забележете, че псевдонимите за типове *не осигуряват* допълнителна типова безопасност, 
+    // тъй като псевдонимите не създават *нови* типове.
     println!("{} nanoseconds + {} inches = {} unit?",
              nanoseconds,
              inches,
@@ -24,9 +24,9 @@ fn main() {
 }
 ```
 
-The main use of aliases is to reduce boilerplate; for example the `io::Result<T>` type
-is an alias for the `Result<T, io::Error>` type.
+Основната цел на псевдонимите е да намалят ненужния код.
+Например, типът `io::Result<T>` е псевдоним за типа `Result<T, io::Error>`.
 
-### See also:
+### Вижте също
 
-[Attributes](../attribute.md)
+[Атрибути](../attribute.md)
