@@ -1,14 +1,13 @@
-# Conversion
+# Конвертиране
 
-Primitive types can be converted to each other through [casting].
+Примитивните типове могат да се конвертират един в друг чрез [кастване].
 
-Rust addresses conversion between custom types (i.e., `struct` and `enum`)
-by the use of [traits]. The generic
-conversions will use the [`From`] and [`Into`] traits. However there are more
-specific ones for the more common cases, in particular when converting to and
-from `String`s.
+Rust адресира конвертиранията между персонализирани типове (като `struct` и `enum`) като използва [traits].
+Генеричните преобразувания ще използват `trait`-овете [`From`] и [`Into`].
+Има обаче по-специфични за по-често срещаните случаи,
+по-специално при преобразуване в или от типа `String`.
 
-[casting]: types/cast.md
+[кастване]: types/cast.md
 [traits]: trait.md
 [`From`]: https://doc.rust-lang.org/std/convert/trait.From.html
 [`Into`]: https://doc.rust-lang.org/std/convert/trait.Into.html

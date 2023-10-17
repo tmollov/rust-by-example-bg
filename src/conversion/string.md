@@ -1,11 +1,11 @@
-# To and from Strings
+# В или от тип String
 
-## Converting to String
+## Конвертиране в String
 
-To convert any type to a `String` is as simple as implementing the [`ToString`]
-trait for the type. Rather than doing so directly, you should implement the
-[`fmt::Display`][Display] trait which automagically provides [`ToString`] and
-also allows printing the type as discussed in the section on [`print!`][print].
+За да конвертирате всякакъв тип в `String`, просто трябва да имплементирате [`ToString`]
+за този тип. По-добре е да имплементирате [`fmt::Display`][Display],
+което автоматично предоставя и [`ToString`] и ви позволява да отпечатвате стойността на типа,
+както беше обяснено в раздела за [`print!`][print].
 
 ```rust,editable
 use std::fmt;
@@ -26,17 +26,17 @@ fn main() {
 }
 ```
 
-## Parsing a String
+## Парсване на String
 
-One of the more common types to convert a string into a number. The idiomatic
-approach to this is to use the [`parse`] function and either to arrange for
-type inference or to specify the type to parse using the 'turbofish' syntax.
-Both alternatives are shown in the following example.
+Едно от по-честите преобразувания е от низ към число. Идиоматичният начин за това е
+да използвате функцията [`parse`] и след това или да оставите на инферентността на типа
+или да указвате типа, който ще се парсне, използвайки синтаксиса с 'turbofish' синтаксиса.
+И двете алтернативи са показани в следния пример.
 
-This will convert the string into the type specified as long as the [`FromStr`]
-trait is implemented for that type. This is implemented for numerous types
-within the standard library. To obtain this functionality on a user defined type
-simply implement the [`FromStr`] trait for that type.
+Това ще преобразува низа в типа, указан в скобите, докато е имплементиран [`FromStr`] за този тип.
+[`FromStr`] е имплементиран за множество типове в стандартната библиотека.
+За да получите тази функционалност за потребителски дефиниран тип,
+просто имплементирайте [`FromStr`] за този тип.
 
 ```rust,editable
 fn main() {

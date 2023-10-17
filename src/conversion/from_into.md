@@ -1,24 +1,24 @@
-# `From` and `Into`
+# `From` и `Into`
 
-The [`From`] and [`Into`] traits are inherently linked, and this is actually part of
-its implementation. If you are able to convert type A from type B, then it
-should be easy to believe that we should be able to convert type B to type A.
+[`From`] и [`Into`] са в същност взаимно свързани и това е фактически част от тяхната имплементация.
+Ако имате възможност да конвертирате тип A от тип B, тогава би трябвало лесно да се предположи,
+че трябва да бъде възможно и конвертирането на тип B към тип A.
 
 ## `From`
 
-The [`From`] trait allows for a type to define how to create itself from another
-type, hence providing a very simple mechanism for converting between several
-types. There are numerous implementations of this trait within the standard
-library for conversion of primitive and common types.
+The [`From`] позволява на даден тип да дефинира как да се създаде от друг тип,
+предоставяйки този начин за конвертиране между различни типове.
+В стандартната библиотека има множество имплементации на този `trait`,
+които позволяват конвертиране между примитивни и общо използвани типове.
 
-For example we can easily convert a `str` into a `String`
+Например много лесно можем да конвертираме `str` в `String`
 
 ```rust
 let my_str = "hello";
 let my_string = String::from(my_str);
 ```
 
-We can do similar for defining a conversion for our own type.
+Подобно на това, можем да дефинираме конверсия за нашия собствен тип.
 
 ```rust,editable
 use std::convert::From;
@@ -42,13 +42,12 @@ fn main() {
 
 ## `Into`
 
-The [`Into`] trait is simply the reciprocal of the `From` trait. That is, if you
-have implemented the `From` trait for your type, `Into` will call it when
-necessary.
+[`Into`] е просто обратното на `From`. Това означава, че ако сте имплементирали `From` за вашия тип,
+`Into` ще го извиква, когато е необходимо.
 
-Using the `Into` trait will typically require specification of the type to
-convert into as the compiler is unable to determine this most of the time.
-However this is a small trade-off considering we get the functionality for free.
+Използването на `Into` обикновено изисква указване на типа, към който да се конвертира,
+тъй като компилаторът не може да го определи в повечето случаи.
+Въпреки това, това е малък компромис, тъй като получаваме функционалността безплатно.
 
 ```rust,editable
 use std::convert::Into;
@@ -66,7 +65,7 @@ impl Into<Number> for i32 {
 
 fn main() {
     let int = 5;
-    // Try removing the type annotation
+    // Опитайте да премахнете анотацията за типа
     let num: Number = int.into();
     println!("My number is {:?}", num);
 }
