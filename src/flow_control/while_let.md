@@ -1,16 +1,16 @@
 # while let
 
-Similar to `if let`, `while let` can make awkward `match` sequences
-more tolerable. Consider the following sequence that increments `i`:
+Подобно на `if let`, `while let` може да прави can make мъчителните `match` последователности
+по-поносими. Помислете за следната последователност, която нараства `i`:
 
 ```rust
-// Make `optional` of type `Option<i32>`
+// Правим `optional` от тип `Option<i32>`
 let mut optional = Some(0);
 
-// Repeatedly try this test.
+// Опитайте многократно този тест.
 loop {
     match optional {
-        // If `optional` destructures, evaluate the block.
+        // Ако `optional` се деструктурира, изпълняваме блока.
         Some(i) => {
             if i > 9 {
                 println!("Greater than 9, quit!");
@@ -19,41 +19,43 @@ loop {
                 println!("`i` is `{:?}`. Try again.", i);
                 optional = Some(i + 1);
             }
-            // ^ Requires 3 indentations!
+            // ^ Изисква 3 отстъпи!
         },
-        // Quit the loop when the destructure fails:
+        // Излезте от цикъла, когато деструктурирането е неуспешно:
         _ => { break; }
-        // ^ Why should this be required? There must be a better way!
+        // ^ Защо трябва да се изисква това? Трябва да има по-добър начин!
     }
 }
 ```
 
-Using `while let` makes this sequence much nicer:
+Използвайки `while let` прави тази последователност много по-хубава:
 
 ```rust,editable
-// Make `optional` of type `Option<i32>`
-let mut optional = Some(0);
+fn main () {
+    // Правим `optional` от тип `Option<i32>`
+    let mut optional = Some(0);
 
-// This reads: "while `let` destructures `optional` into
-// `Some(i)`, evaluate the block (`{}`). Else `break`.
-while let Some(i) = optional {
-    if i > 9 {
-        println!("Greater than 9, quit!");
-        optional = None;
-    } else {
-        println!("`i` is `{:?}`. Try again.", i);
-        optional = Some(i + 1);
+    // Това се оценавя на: "докато `let` деструктурира `optional` в
+    // `Some(i)`, изпълни блока (`{}`). Иначе спри `break`.
+    while let Some(i) = optional {
+        if i > 9 {
+            println!("Greater than 9, quit!");
+            optional = None;
+        } else {
+            println!("`i` is `{:?}`. Try again.", i);
+            optional = Some(i + 1);
+        }
+        // ^ По-малко отклонение надясно и не изисква
+        // изрично обработване на неуспешен случай.
     }
-    // ^ Less rightward drift and doesn't require
-    // explicitly handling the failing case.
+    // ^ `if let` имаше допълнителни опции `else`/`else if`
+    // клаузи, докато `while let` ги няма.
 }
-// ^ `if let` had additional optional `else`/`else if`
-// clauses. `while let` does not have these.
 ```
 
-### See also:
+### Вижте също
 
-[`enum`][enum], [`Option`][option], and the [RFC][while_let_rfc]
+[`enum`][enum], [`Option`][option], и [RFC][while_let_rfc]
 
 [enum]: ../custom_types/enum.md
 [option]: ../std/option.md

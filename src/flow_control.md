@@ -1,4 +1,4 @@
-# Flow of Control
+# Контрол на потока
 
-An integral part of any programming language are ways to modify control flow:
-`if`/`else`, `for`, and others. Let's talk about them in Rust.
+Неразделна част от всеки език за програмиране са начините за модифициране на контролния поток:
+`if`/`else`, `for`, и други. Нека поговорим за тях в Rust.

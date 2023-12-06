@@ -1,11 +1,10 @@
-# Binding
+# Присвояване
 
-Indirectly accessing a variable makes it impossible to branch and use that
-variable without re-binding. `match` provides the `@` sigil for binding values to
-names:
+Индиректният достъп до променлива прави невъзможно разклоняването и използването на тази променлива без повторното присвояване.
+`match` осигурява знака `@` за присвояване на стойности към имена:
 
 ```rust,editable
-// A function `age` which returns a `u32`.
+// Функция `age`, която връща `u32`.
 fn age() -> u32 {
     15
 }
@@ -15,18 +14,18 @@ fn main() {
 
     match age() {
         0             => println!("I haven't celebrated my first birthday yet"),
-        // Could `match` 1 ..= 12 directly but then what age
-        // would the child be? Instead, bind to `n` for the
-        // sequence of 1 ..= 12. Now the age can be reported.
+        // Можем директно да съпосватим `match` 1 ..= 12, но тогава на колко
+        // би било детето? Вместо това, присвояваме го на `n`
+        // за последователността от 1 ..= 12. Вече може да се докладва възрастта.
         n @ 1  ..= 12 => println!("I'm a child of age {:?}", n),
         n @ 13 ..= 19 => println!("I'm a teen of age {:?}", n),
-        // Nothing bound. Return the result.
+        // Нищо не съвпадна. Връщаме резултата.
         n             => println!("I'm an old person of age {:?}", n),
     }
 }
 ```
 
-You can also use binding to "destructure" `enum` variants, such as `Option`:
+Можете да използвате "деструктивния" `enum` варианти за присвояване, например `Option`:
 
 ```rust,editable
 fn some_number() -> Option<u32> {
@@ -35,19 +34,20 @@ fn some_number() -> Option<u32> {
 
 fn main() {
     match some_number() {
-        // Got `Some` variant, match if its value, bound to `n`,
-        // is equal to 42.
+        // Получаваме варианта `Some`, съпоставяме го ако е стойност, и пристояваме го на `n`,
+        // което е равно на 42.
         Some(n @ 42) => println!("The Answer: {}!", n),
-        // Match any other number.
+        // Съпоставяме го какъвто и да е цифра.
         Some(n)      => println!("Not interesting... {}", n),
-        // Match anything else (`None` variant).
+        // Съпоставяме всичко останало (варианта `None`).
         _            => (),
     }
 }
 ```
 
-### See also:
-[`functions`][functions], [`enums`][enums] and [`Option`][option]
+### Вижте също
+
+[`Функции`][functions], [`Енумерации`][enums] и [`Option`][option]
 
 [functions]: ../../fn.md
 [enums]: ../../custom_types/enum.md

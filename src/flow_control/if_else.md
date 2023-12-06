@@ -1,9 +1,8 @@
 # if/else
 
-Branching with `if`-`else` is similar to other languages. Unlike many of them,
-the boolean condition doesn't need to be surrounded by parentheses, and each
-condition is followed by a block. `if`-`else` conditionals are expressions,
-and, all branches must return the same type.
+Разклоняването с `if`-`else` е подобно на другите езици. За разлика от много от тях,
+булевото условие не се нуждае от скоби, и след всяко условие следва блок. `if`-`else`  условията са изрази,
+и всички клонове трябва да връщат същия тип.
 
 ```rust,editable
 fn main() {
@@ -21,16 +20,16 @@ fn main() {
         if n < 10 && n > -10 {
             println!(", and is a small number, increase ten-fold");
 
-            // This expression returns an `i32`.
+            // Този израз връща `i32`.
             10 * n
         } else {
             println!(", and is a big number, halve the number");
 
-            // This expression must return an `i32` as well.
+            // Този израз също трябва да връща `i32`.
             n / 2
-            // TODO ^ Try suppressing this expression with a semicolon.
+            // TODO ^ Опитайте да потиснете този израз с точка и запетая.
         };
-    //   ^ Don't forget to put a semicolon here! All `let` bindings need it.
+    //   ^ Не забравяйте да поставите точка и запетая тук! Всички `let` изрази изискват това.
 
     println!("{} -> {}", n, big_n);
 }

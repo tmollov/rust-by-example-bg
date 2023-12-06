@@ -1,15 +1,15 @@
 # while
 
-The `while` keyword can be used to run a loop while a condition is true.
+Ключовата дума `while` може да се използва за изпълнение на цикъл, докато дадено условие е вярно.
 
-Let's write the infamous [FizzBuzz][fizzbuzz] using a `while` loop.
+Нека напишем прословутия [FizzBuzz][fizzbuzz] с помощта на цикъла `while`.
 
 ```rust,editable
 fn main() {
-    // A counter variable
+    // Брояч
     let mut n = 1;
 
-    // Loop while `n` is less than 101
+    // Циклим докато `n` е по малко от 101
     while n < 101 {
         if n % 15 == 0 {
             println!("fizzbuzz");
@@ -21,7 +21,7 @@ fn main() {
             println!("{}", n);
         }
 
-        // Increment counter
+        // Увеличаваме брояча
         n += 1;
     }
 }

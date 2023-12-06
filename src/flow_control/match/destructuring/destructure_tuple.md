@@ -1,27 +1,27 @@
-# tuples
+# Деструктуриране на *Tuple*
 
-Tuples can be destructured in a `match` as follows:
+Различните видове `tuple` могат да бъдат деструктурирани с блока `match` така:
 
 ```rust,editable
 fn main() {
     let triple = (0, -2, 3);
-    // TODO ^ Try different values for `triple`
+    // TODO ^ Опитайте различни стойности за `triple`
 
     println!("Tell me about {:?}", triple);
-    // Match can be used to destructure a tuple
+    // `match` може да бъде използван за деструктурирането на `triple`
     match triple {
-        // Destructure the second and third elements
+        // Деструктуриране на втория и третия елемент
         (0, y, z) => println!("First is `0`, `y` is {:?}, and `z` is {:?}", y, z),
         (1, ..)  => println!("First is `1` and the rest doesn't matter"),
         (.., 2)  => println!("last is `2` and the rest doesn't matter"),
         (3, .., 4)  => println!("First is `3`, last is `4`, and the rest doesn't matter"),
-        // `..` can be used to ignore the rest of the tuple
+        // `..` може да се използва, за да се игнорира останалата част от дадения `tuple`
         _      => println!("It doesn't matter what they are"),
-        // `_` means don't bind the value to a variable
+        // `_` означава да не присвоява стойността в променлива
     }
 }
 ```
 
-### See also:
+### Вижте също
 
 [Tuples](../../../primitives/tuples.md)

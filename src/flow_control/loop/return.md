@@ -1,9 +1,8 @@
-# Returning from loops
+# Връщане от цикли
 
-One of the uses of a `loop` is to retry an operation until it succeeds. If the
-operation returns a value though, you might need to pass it to the rest of the
-code: put it after the `break`, and it will be returned by the `loop`
-expression.
+Една от употребите на `loop` е да повтаряте операция докато тя успее. Ако операцията връща стойност,
+тогава може би ще трябва да я подадете на останалата част от кода: поставете я след `break`,
+и тя ще бъде върната от израза `loop`.
 
 ```rust,editable
 fn main() {

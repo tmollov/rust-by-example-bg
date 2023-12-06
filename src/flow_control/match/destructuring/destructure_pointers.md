@@ -1,58 +1,57 @@
-# pointers/ref
+# Деструктуриране на референции/указатели
 
-For pointers, a distinction needs to be made between destructuring
-and dereferencing as they are different concepts which are used
-differently from languages like C/C++.
+За указателите, трябва да се направи разграничение между деконструкцията и разсейването,
+тъй като те са различни концепции, които се използват по различен начин от езици като C/C++.
 
- * Dereferencing uses `*`
- * Destructuring uses `&`, `ref`, and `ref mut`
+* Дереферирането използва `*`
+* Деструктурирането използва `&`, `ref`, и `ref mut`
 
 ```rust,editable
 fn main() {
-    // Assign a reference of type `i32`. The `&` signifies there
-    // is a reference being assigned.
+    // Задайте референция към тип `i32`. Знака `&` означава, 
+    // че има присвоена референция.
     let reference = &4;
 
     match reference {
-        // If `reference` is pattern matched against `&val`, it results
-        // in a comparison like:
+        // Ако `reference` се използва с `pattern matching` със `&val`, това води
+        // в сравнение като:
         // `&i32`
         // `&val`
-        // ^ We see that if the matching `&`s are dropped, then the `i32`
-        // should be assigned to `val`.
+        // ^ Виждаме, че ако съвпадението `&`s са изпуснати, тогава `i32`
+        // трябва да се присвоен на `val`.
+        // Това е пример за деструктуриране.
         &val => println!("Got a value via destructuring: {:?}", val),
     }
 
-    // To avoid the `&`, you dereference before matching.
+    // За да избегнете `&`, трябва да дереферирате в/преди `match`.
     match *reference {
+        // Това е пример за дерефериране.
         val => println!("Got a value via dereferencing: {:?}", val),
     }
 
-    // What if you don't start with a reference? `reference` was a `&`
-    // because the right side was already a reference. This is not
-    // a reference because the right side is not one.
+    // Ами ако не започнете с референция?
+    // Това не е референция, защото дясната страна е стойност присвоявена от променливата.
     let _not_a_reference = 3;
 
-    // Rust provides `ref` for exactly this purpose. It modifies the
-    // assignment so that a reference is created for the element; this
-    // reference is assigned.
+    // Rust предоставя `ref` за подобна цел. Той променя присвояването,
+    // така че да се създаде референция към елемента; тази референция е присвоена.
     let ref _is_a_reference = 3;
 
-    // Accordingly, by defining 2 values without references, references
-    // can be retrieved via `ref` and `ref mut`.
+    // Следователно, чрез дефиниране на 2 стойности без референции, 
+    // референциите им могат да бъдат извлечени чрез `ref` и `ref mut`.
     let value = 5;
     let mut mut_value = 6;
 
-    // Use `ref` keyword to create a reference.
+    // Използвайте ключова дума `ref` за да създадете референция.
     match value {
         ref r => println!("Got a reference to a value: {:?}", r),
     }
 
-    // Use `ref mut` similarly.
+    // Използвайте `ref mut` по подобен начин.
     match mut_value {
         ref mut m => {
-            // Got a reference. Gotta dereference it before we can
-            // add anything to it.
+            // Получаваме като стойност референция. Трябва да го дереферираме преди да можем
+            // да добавим каквото и да било към него.
             *m += 10;
             println!("We added 10. `mut_value`: {:?}", m);
         },
@@ -60,6 +59,6 @@ fn main() {
 }
 ```
 
-### See also:
+### Вижте също
 
 [The ref pattern](../../../scope/borrow/ref.md)

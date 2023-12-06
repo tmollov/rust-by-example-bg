@@ -1,16 +1,15 @@
-# Destructuring
+# Деструктуриране
 
-A `match` block can destructure items in a variety of ways.
+Блокът `match` може да деструктира предмети по различни начини.
 
-* [Destructuring Tuples][tuple]
-* [Destructuring Arrays and Slices][slice]
-* [Destructuring Enums][enum]
-* [Destructuring Pointers][refs]
-* [Destructuring Structures][struct]
+* [Деструктуриране на Tuples][tuple]
+* [Деструктуриране на масиви и отрязъци][slice]
+* [Деструктуриране на енумерации][enum]
+* [Деструктуриране на референции][refs]
+* [Деструктуриране на структури][struct]
 
-
+[tuple]: destructuring/destructure_tuple.md
+[slice]: destructuring/destructure_slice.md
 [enum]: destructuring/destructure_enum.md
 [refs]: destructuring/destructure_pointers.md
 [struct]: destructuring/destructure_structures.md
-[tuple]: destructuring/destructure_tuple.md
-[slice]: destructuring/destructure_slice.md

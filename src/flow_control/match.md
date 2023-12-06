@@ -1,35 +1,35 @@
 # match
 
-Rust provides pattern matching via the `match` keyword, which can be used like
-a C `switch`. The first matching arm is evaluated and all possible values must be
-covered.
+Rust осигурява т.нар. **pattern matching** чрез ключовата дума `match`, което може да се използва като
+`switch`-овете в **C** езика. Първото съответстващо рамо се оценява и всички възможни стойности трябва да бъдат
+покрити.
 
 ```rust,editable
 fn main() {
     let number = 13;
-    // TODO ^ Try different values for `number`
+    // TODO ^ Опитайте различни стойности за `number`
 
     println!("Tell me about {}", number);
     match number {
-        // Match a single value
+        // Съпоставяме една стойност
         1 => println!("One!"),
-        // Match several values
+        // Съпоставяме няколко стойности
         2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
-        // TODO ^ Try adding 13 to the list of prime values
-        // Match an inclusive range
+        // TODO ^ Опитайте да добавите 13 към списъка с 'prime' стойности
+        // Съпоставяме с включителен обхват
         13..=19 => println!("A teen"),
-        // Handle the rest of cases
+        // Грижим се за останалите случаи
         _ => println!("Ain't special"),
-        // TODO ^ Try commenting out this catch-all arm
+        // TODO ^ Опитайте да коментирате тази всеобхватно рамо
     }
 
     let boolean = true;
-    // Match is an expression too
+    // 'match' също така е и израз
     let binary = match boolean {
-        // The arms of a match must cover all the possible values
+        // `мatch` трябва да покрива всички възможни стойности
         false => 0,
         true => 1,
-        // TODO ^ Try commenting out one of these arms
+        // TODO ^ Опитайте да коментирате едно от тези рамене
     };
 
     println!("{} -> {}", boolean, binary);

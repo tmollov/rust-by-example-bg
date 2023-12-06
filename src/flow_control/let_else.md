@@ -1,15 +1,13 @@
 # let-else
 
-
-> 🛈 stable since: rust 1.65
+> 🛈 стабилна от версия: rust 1.65
 >
-> 🛈 you can target specific edition by compiling like this
+> 🛈 можете да се използвате конкретна версия, като използвате компилатора **rustc** така:
 > `rustc --edition=2021 main.rs`
 
-
-With `let`-`else`, a refutable pattern can match and bind variables
-in the surrounding scope like a normal `let`, or else diverge (e.g. `break`,
-`return`, `panic!`) when the pattern doesn't match.
+С тази опровергаема стуктура, `let`-`else` може да противопоставя и обвързва променливи
+в околния обхват като нормален `let`, или **else** разклонение (напр. `break`,
+`return`, `panic!`) когато стойността не съвпада.
 
 ```rust
 use std::str::FromStr;
@@ -30,9 +28,9 @@ fn main() {
 }
 ```
 
-The scope of name bindings is the main thing that makes this different from
-`match` or `if let`-`else` expressions. You could previously approximate these
-patterns with an unfortunate bit of repetition and an outer `let`:
+Обхватът на обвързаните имена е основното нещо, което прави това различно от
+`match` и `if let`-`else` изразите. Приблизително можете да съпоставите
+тези модели с жалко повторение и външен `let` блок:
 
 ```rust
 # use std::str::FromStr;
@@ -54,10 +52,9 @@ patterns with an unfortunate bit of repetition and an outer `let`:
 # assert_eq!(get_count_item("3 chairs"), (3, "chairs"));
 ```
 
-### See also:
+### Вижте също
 
-[option][option], [match][match], [if let][if_let] and the [let-else RFC][let_else_rfc].
-
+[option][option], [match][match], [if let][if_let] и [let-else RFC][let_else_rfc].
 
 [match]: ./match.md
 [if_let]: ./if_let.md
